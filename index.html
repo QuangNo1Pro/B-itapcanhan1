@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,26 +11,33 @@
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.0/themes/base/jquery-ui.css">
 
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
         body {
             width: 100%;
-            height:100%;
+            height: 100%;
             margin: 0;
             font-family: Arial, sans-serif;
             background-color: #f5f5f5;
         }
-        .container{
-            display:flex;
+
+        .container {
+            display: flex;
             max-width: 1280px;
             width: 100%;
-            height:100%;
-            margin:5px;
+            height: 100vh;
+            margin: 5px;
             flex-direction: column;
-            justify-content: center; 
+            justify-content: center;
             align-items: center;
         }
-        .header{
-            width:100%;
-            height:50px;
+
+        .header {
+            width: 100%;
+            height: 50px;
             border-radius: 5px;
             box-shadow: 2px 2px 5px rgba(48, 47, 47, 0.833);
             background-color: rgb(9, 162, 244);
@@ -39,47 +47,123 @@
             font-weight: bold;
 
         }
-        .nav{
-            display:flex;
+
+        .nav {
+            display: flex;
             flex-direction: row;
-            height:10px;
+            height: 10px;
+            padding: 2px;
             text-align: center;
             font-size: 10px;
-            gap:10px;
+            gap: 20px;
             border-radius: 5px;
             box-shadow: 2px 2px 5px rgba(48, 47, 47, 0.833);
             background-color: rgb(131, 202, 240);
-            color:#044173;
+            color: #044173;
         }
-        .main{
+
+        .main {
+            flex: 1;
             margin-top: 5px;
             margin-bottom: 3px;
-            width:100%;
-            height:100%;
-            display:grid;
-            grid-template-columns: 256px auto;
-            grid-template-rows:50% 50%;
-            gap:20px;
-            border-top: 1px solid #2196f3;  
-            border-bottom: 1px solid #2196f3;  
+            padding: 5px;
+            width: 100%;
+            height: 100;
+            display: grid;
+            grid-template-columns: 256px 1fr;
+            grid-template-rows: 50% 50%;
+            gap: 20px;
+            border-top: 1px solid #2196f3;
+            border-bottom: 1px solid #2196f3;
         }
-        .side{
-            border:black;
+
+        .side {
+            border: 2px solid black;
+            border-radius: 5px;
+            background-color: #2196f3;
+
         }
-        .text{
-            border:black;
+
+        .text {
+            border: 2px solid black;
+            background: #c98208;
+            border-radius: 5px;
+
         }
-        .images{
-            border:black;
+
+        .images {
+            border: 2px solid black;
             grid-column: 2/3;
             grid-row: 2/3;
+            border-radius: 5px;
         }
-        .footer{
-            height:33px;
-            width:100%;
-            display:flex;
+        .main-head {
+            height: 10%;
+            padding:2px;
+            padding-left: 10px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            justify-content: center;
+            align-items: center;
+            background: #2196f3
+        }
+
+        .drap {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .select-images {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap:10px;
+        }
+
+        .add {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #imageSelect {
+            font-size: 15px;
+            padding: 10px;
+            border-radius: 5px;
+            border: 2px solid #2196f3;
+        }
+
+        #add {
+            font-size: 15px;
+            border-radius: 10px;
+            border: 2px solid #2196f3;
+            background-color: #043156;
+            color: white;
+            cursor: pointer;
+        }
+
+        #add:hover {
+            background-color: #b31e1e;
+            /* Màu nền khi hover */
+        }
+
+        .image-display {
+            display: flex;
             flex-direction: row;
-            gap:10px; 
+            background: #d51818;
+
+        }
+
+        .footer {
+            height: 33px;
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
             text-align: center;
             justify-content: center;
             align-items: center;
@@ -88,11 +172,11 @@
             border-radius: 5px;
             border: 1px #c98208;
             box-shadow: 2px 2px 5px rgba(48, 47, 47, 0.833);
-            color:#c98208;
+            color: #c98208;
         }
-
     </style>
 </head>
+
 <body>
     <div class="container">
         <div class="header">Bài tập 1 - 22120296</div>
@@ -106,7 +190,27 @@
         <div class="main">
             <div class="side"></div>
             <div class="text"></div>
-            <div class="images"></div>
+            <div class="images">
+                <div class="main-head">
+                    <div class="drag"> Drag & Drop</div>
+                    <div class="select-images">
+                        <select id="imageSelect">
+                            <option value="ho">🦁</option>
+                            <option value="cho">🐶</option>
+                            <option value="chim">🐭</option>
+                            <option value="gau">🐻</option>
+                            <option value="bo">🐮</option>
+                            <option value="ech">🐸</option>
+                            <option value="khi">🐵</option>
+                            <option value="heo">🐷</option>
+                        </select>
+                        <div class="add">
+                            <button id="add">Add New</button>
+                        </div>
+                    </div>
+                </div>
+                <div id="imageDisplay" class="image-display"></div>
+            </div>
         </div>
         <div class="footer">Copyright © LeVanQuang
             <div class="item" id="f_menu1">Menu1</div>
@@ -119,12 +223,8 @@
             <div class="item">|</div>
             <div class="item" id="f_menu5">Menu5</div>
         </div>
-        
-
-
     </div>
 
-
-    
 </body>
+
 </html>
