@@ -130,13 +130,13 @@
         }
 
         #imageSelect {
-            font-size: 15px;
-            padding: 10px;
+            font-size: 20px;
+            padding: 5px;
             border-radius: 5px;
             border: 2px solid black;
         }
-
         #add {
+            padding:5px;
             font-size: 15px;
             border-radius: 10px;
             border: 2px solid #2196f3;
@@ -170,9 +170,8 @@
             border-radius: 10px;
             padding: 10px;
             background: #1f659e;
-            cursor: move; /* Hiển thị con trỏ chuột khi di chuột qua */
-            position: relative; /* Thêm position cho z-index */
-            z-index: 1; /* Đặt z-index ban đầu */
+            cursor: move;
+            position: relative; 
         }
 
         .image-name {
@@ -263,8 +262,9 @@
         </div>
     </div>
     <script>
-$(document).ready(function() {
-    $('#add').on('click', function() {
+$(document).ready(function () { 
+    // Khi click chọn hình
+    $('#add').on('click', function () {
         const selectedOption = $('#imageSelect option:selected').val();
         const emoji = $('#imageSelect option:selected').text();
 
@@ -275,42 +275,41 @@ $(document).ready(function() {
 
         // Thêm hình ảnh vào phần image-display
         $('#imageDisplay').append(imageElement);
-        makeDraggable(imageElement);
-    });
 
-    function makeDraggable(element) {
-        element.draggable({
-            revert: 'invalid', // Trả về vị trí cũ nếu không thả vào vùng hợp lệ
-            start: function(event, ui) {
-                $(this).css("opacity", "0.5"); // Giảm độ mờ của hình ảnh đang kéo
-                $(this).css("z-index", "9999"); // Đặt z-index cao để nằm trên các hình khác
+        // Cập nhật lại sortable
+        makeSortable(); 
+    });
+    function makeSortable() {
+        $('#imageDisplay').sortable({
+            items: '.image',
+            placeholder: 'image-placeholder', // Vùng giữ chỗ
+            tolerance: 'intersect', // Nhận diện dựa trên giao cắt giữa các phần tử
+            axis: 'x', // Giới hạn kéo theo chiều ngang
+            start: function (event, ui) {
+                ui.item.css({
+                    opacity: '0.6', // Giảm độ trong suốt trong khi kéo
+                    zIndex: '1000', // Đảm bảo phần tử đang kéo luôn ở trên cùng
+                });
+                ui.placeholder.height(ui.item.outerHeight());
+                ui.placeholder.width(ui.item.outerWidth());
             },
-            stop: function(event, ui) {
-                $(this).css("opacity", "1"); // Khôi phục độ mờ sau khi thả
-                $(this).css("z-index", "1"); // Khôi phục z-index về mặc định
+            over: function (event, ui) {
+                // Đảm bảo vùng giữ chỗ sẽ được chèn chính xác giữa 2 phần tử khi kéo qua
+                ui.placeholder.css('visibility', 'visible');
+            },
+            stop: function (event, ui) {
+                ui.item.css({
+                    opacity: '1', // Khôi phục độ trong suốt
+                    zIndex: '1', // Khôi phục z-index
+                });
             }
-        });
+        }).disableSelection();
     }
-
-    // Kích hoạt tính năng sortable cho khu vực imageDisplay
-    $('#imageDisplay').sortable({
-        items: '.image', // Chỉ cho phép sắp xếp các phần tử có lớp .image
-        placeholder: 'image-placeholder', // Lớp cho vùng giữ chỗ
-        revert: true, // Làm cho việc sắp xếp trở nên mượt mà
-        start: function(event, ui) {
-            ui.placeholder.height(ui.item.height()); // Đặt chiều cao cho vùng giữ chỗ
-            ui.placeholder.width(ui.item.width()); // Đặt chiều rộng cho vùng giữ chỗ
-        }
-    });
-
-    // Đảm bảo rằng vùng imageDisplay có thể thả hình ảnh
-    $('#imageDisplay').droppable({
-        accept: '.image',
-        drop: function(event, ui) {
-            // Không cần thực hiện gì ở đây nếu đã sử dụng sortable
-        }
-    });
+    // Khởi tạo sortable ngay từ đầu
+    makeSortable();
 });
+
+
 
 </script>
 </body>
