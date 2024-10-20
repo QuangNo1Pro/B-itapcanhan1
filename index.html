@@ -5,11 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bài tập cá nhân 1</title>
-
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://code.jquery.com/ui/1.14.0/jquery-ui.min.js"></script>
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.0/themes/base/jquery-ui.css">
-
     <style>
         * {
             box-sizing: border-box;
@@ -17,7 +15,7 @@
 
         html,
         body {
-            width: 100%;
+            max-width: 1280px;
             height: 100%;
             margin: 0;
             font-family: Arial, sans-serif;
@@ -51,7 +49,7 @@
         .nav {
             display: flex;
             flex-direction: row;
-            height: 10px;
+            height: 16px;
             padding: 2px;
             text-align: center;
             font-size: 10px;
@@ -65,16 +63,15 @@
         .main {
             flex: 1;
             margin-top: 5px;
-            margin-bottom: 3px;
+            margin-bottom: 5px;
             padding: 5px;
             width: 100%;
-            height: 100;
             display: grid;
             grid-template-columns: 256px 1fr;
             grid-template-rows: 50% 50%;
-            gap: 20px;
-            border-top: 1px solid #2196f3;
-            border-bottom: 1px solid #2196f3;
+            gap: 5px;
+            border-top: 2px solid #2196f3;
+            border-bottom: 2px solid #2196f3;
         }
 
         .side {
@@ -96,35 +93,37 @@
             grid-column: 2/3;
             grid-row: 2/3;
             border-radius: 5px;
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 5px;
         }
+
         .main-head {
             height: 10%;
-            padding:2px;
+            padding: 2px;
             padding-left: 10px;
             display: grid;
             grid-template-columns: 1fr 1fr;
             justify-content: center;
             align-items: center;
-            background: #2196f3
+            background: #2196f3;
+            color: white;
         }
 
         .drap {
-            height: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
         }
 
         .select-images {
-            height: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
-            gap:10px;
+            gap: 10px;
         }
 
         .add {
-            height: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -134,28 +133,66 @@
             font-size: 15px;
             padding: 10px;
             border-radius: 5px;
-            border: 2px solid #2196f3;
+            border: 2px solid black;
         }
 
         #add {
             font-size: 15px;
             border-radius: 10px;
             border: 2px solid #2196f3;
-            background-color: #043156;
+            background-color: #065291;
             color: white;
             cursor: pointer;
         }
 
         #add:hover {
-            background-color: #b31e1e;
-            /* Màu nền khi hover */
+            background-color: #041e60;
         }
 
         .image-display {
             display: flex;
-            flex-direction: row;
-            background: #d51818;
+            flex-wrap: wrap;
+            gap: 20px;
+            background: white;
+            margin-bottom: 5px;
+            padding: 10px;
+            min-height: 100px;
+            position: relative; 
 
+        }
+
+        .image {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 50px;
+            border: 2px solid black;
+            border-radius: 10px;
+            padding: 10px;
+            background: #1f659e;
+            cursor: move; /* Hiển thị con trỏ chuột khi di chuột qua */
+            position: relative; /* Thêm position cho z-index */
+            z-index: 1; /* Đặt z-index ban đầu */
+        }
+
+        .image-name {
+            margin-top: 5px;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        /* Tạo hiệu ứng cho vùng giữ chổ kéo thả */
+        .image-placeholder {
+            border: 2px dashed #ccc;
+            /* Viền cho vùng giữ chỗ */
+            background: rgba(204, 204, 204, 0.5);
+            /* Màu nền cho vùng giữ chỗ */
+            height: 100px;
+            /* Chiều cao tối thiểu cho vùng giữ chỗ */
+            width: 100px;
+            /* Chiều rộng tối thiểu cho vùng giữ chỗ */
+            margin: 5px;
+            /* Khoảng cách giữa các hình ảnh */
         }
 
         .footer {
@@ -195,13 +232,13 @@
                     <div class="drag"> Drag & Drop</div>
                     <div class="select-images">
                         <select id="imageSelect">
-                            <option value="ho">🦁</option>
-                            <option value="cho">🐶</option>
-                            <option value="chim">🐭</option>
-                            <option value="gau">🐻</option>
-                            <option value="bo">🐮</option>
-                            <option value="ech">🐸</option>
-                            <option value="khi">🐵</option>
+                            <option value="hổ">🦁</option>
+                            <option value="chó">🐶</option>
+                            <option value="chuột">🐭</option>
+                            <option value="gấu">🐻</option>
+                            <option value="bò">🐮</option>
+                            <option value="ếch">🐸</option>
+                            <option value="khỉ">🐵</option>
                             <option value="heo">🐷</option>
                         </select>
                         <div class="add">
@@ -212,7 +249,8 @@
                 <div id="imageDisplay" class="image-display"></div>
             </div>
         </div>
-        <div class="footer">Copyright © LeVanQuang
+        <div class="footer">
+            Copyright © LeVanQuang
             <div class="item" id="f_menu1">Menu1</div>
             <div class="item">|</div>
             <div class="item" id="f_menu2">Menu2</div>
@@ -224,7 +262,57 @@
             <div class="item" id="f_menu5">Menu5</div>
         </div>
     </div>
+    <script>
+$(document).ready(function() {
+    $('#add').on('click', function() {
+        const selectedOption = $('#imageSelect option:selected').val();
+        const emoji = $('#imageSelect option:selected').text();
 
+        // Tạo phần tử hình ảnh mới
+        const imageElement = $('<div class="image"></div>');
+        imageElement.append($('<div></div>').text(emoji).css('font-size', '50px'));
+        imageElement.append($('<div class="image-name"></div>').text(selectedOption));
+
+        // Thêm hình ảnh vào phần image-display
+        $('#imageDisplay').append(imageElement);
+        makeDraggable(imageElement);
+    });
+
+    function makeDraggable(element) {
+        element.draggable({
+            revert: 'invalid', // Trả về vị trí cũ nếu không thả vào vùng hợp lệ
+            start: function(event, ui) {
+                $(this).css("opacity", "0.5"); // Giảm độ mờ của hình ảnh đang kéo
+                $(this).css("z-index", "9999"); // Đặt z-index cao để nằm trên các hình khác
+            },
+            stop: function(event, ui) {
+                $(this).css("opacity", "1"); // Khôi phục độ mờ sau khi thả
+                $(this).css("z-index", "1"); // Khôi phục z-index về mặc định
+            }
+        });
+    }
+
+    // Kích hoạt tính năng sortable cho khu vực imageDisplay
+    $('#imageDisplay').sortable({
+        items: '.image', // Chỉ cho phép sắp xếp các phần tử có lớp .image
+        placeholder: 'image-placeholder', // Lớp cho vùng giữ chỗ
+        revert: true, // Làm cho việc sắp xếp trở nên mượt mà
+        start: function(event, ui) {
+            ui.placeholder.height(ui.item.height()); // Đặt chiều cao cho vùng giữ chỗ
+            ui.placeholder.width(ui.item.width()); // Đặt chiều rộng cho vùng giữ chỗ
+        }
+    });
+
+    // Đảm bảo rằng vùng imageDisplay có thể thả hình ảnh
+    $('#imageDisplay').droppable({
+        accept: '.image',
+        drop: function(event, ui) {
+            // Không cần thực hiện gì ở đây nếu đã sử dụng sortable
+        }
+    });
+});
+
+</script>
 </body>
 
 </html>
