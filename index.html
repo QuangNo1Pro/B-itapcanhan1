@@ -32,7 +32,7 @@
             justify-content: center;
             align-items: center;
         }
-
+    /* Header */
         .header {
             width: 100%;
             height: 58px;
@@ -46,6 +46,8 @@
             color:white;
 
         }
+
+    /* Nav */
         .nav {
             display: flex;
             flex-direction: row;
@@ -64,6 +66,7 @@
             cursor:pointer;
         }
 
+    /* Main */
         .main {
             flex: 1;
             margin-top: 5px;
@@ -77,32 +80,7 @@
             border-top: 2px solid #2196f3;
             border-bottom: 2px solid #2196f3;
         }
-
-        .side {
-            border: 2px solid black;
-            border-radius: 5px;
-            background-color: #2196f3;
-
-        }
-
-        .text {
-            border: 2px solid black;
-            background: #c98208;
-            border-radius: 5px;
-
-        }
-
-        .images {
-            border: 2px solid black;
-            grid-column: 2/3;
-            grid-row: 2/3;
-            border-radius: 5px;
-            display: flex;
-            flex-direction: column;
-            margin-bottom: 5px;
-        }
-
-        .main-head {
+        .main-table {
             height: 10%;
             padding: 2px;
             padding-left: 10px;
@@ -114,25 +92,69 @@
             color: white;
         }
 
+        /* Side */
+        .side {
+            border-radius: 5px;
+            background-color: white;
+            display:flex;
+            flex-direction: column;
+            gap:3px;
+        }
+        .new{
+            border: 2px solid black;
+            display:grid;
+        }
+        .new-header{
+            display:flex;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            color:white;
+            background:#f4bf64;
+            padding:5px;
+        }
+        .new-body{
+            text-align: left;
+            color:rgba(35, 132, 228, 0.683);
+            background:white;
+        }
+        /* Process Text */
+        .text {
+            border: 2px solid black;
+            background: #c98208;
+            border-radius: 5px;
+
+        }
+        /* Hình thêm vào */
+        .images {
+            border: 2px solid black;
+            grid-column: 2/3;
+            grid-row: 2/3;
+            border-radius: 5px;
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 5px;
+        }
+        /* Chứa tên mục của khung chứa hình */
         .drap {
             display: flex;
             justify-content: center;
             align-items: center;
         }
-
+        /* Chứa các lựa chọn hình */
         .select-images {
             display: flex;
             justify-content: center;
             align-items: center;
             gap: 10px;
         }
-
+        /* Nút submit */
         .add {
             display: flex;
             justify-content: center;
             align-items: center;
         }
-
+       
         #imageSelect {
             font-size: 20px;
             padding: 5px;
@@ -153,6 +175,7 @@
             background-color: #041e60;
         }
 
+        /* display các hình thêm vào */
         .image-display {
             display: flex;
             flex-wrap: wrap;
@@ -164,7 +187,7 @@
             position: relative; 
 
         }
-
+        /* Hình con */
         .image {
             display: flex;
             flex-direction: column;
@@ -177,7 +200,7 @@
             cursor: move;
             position: relative; 
         }
-
+        /* Tên hình */
         .image-name {
             margin-top: 5px;
             font-size: 14px;
@@ -186,18 +209,14 @@
 
         /* Tạo hiệu ứng cho vùng giữ chổ kéo thả */
         .image-placeholder {
-            border: 2px dashed #ccc;
-            /* Viền cho vùng giữ chỗ */
-            background: rgba(204, 204, 204, 0.5);
-            /* Màu nền cho vùng giữ chỗ */
-            height: 100px;
-            /* Chiều cao tối thiểu cho vùng giữ chỗ */
-            width: 100px;
-            /* Chiều rộng tối thiểu cho vùng giữ chỗ */
-            margin: 5px;
-            /* Khoảng cách giữa các hình ảnh */
+            border: 2px dashed #ccc; /* Viền cho vùng giữ chỗ */
+            background: rgba(204, 204, 204, 0.5); /* Màu nền cho vùng giữ chỗ */
+            height: 100px; /* Chiều cao tối thiểu cho vùng giữ chỗ */
+            width: 100px; /* Chiều rộng tối thiểu cho vùng giữ chỗ */
+            margin: 5px; /* Khoảng cách giữa các hình ảnh */
         }
 
+        /* Footer */
         .footer {
             height: 33px;
             width: 100%;
@@ -215,13 +234,16 @@
             color: #c98208;
             cursor:pointer;
         }
+        /* Các menu */
         .item{
             font-size: 10px;
             text-decoration: underline;
         }
+        /* Highlight menu */
         .decorate-menu{
             color:#f79c00;
         }
+        
     </style>
 </head>
 
@@ -236,10 +258,55 @@
             <div class="menu" id="menu5">Menu5</div>
         </div>
         <div class="main">
-            <div class="side"></div>
+            <div class="side">
+                <div class="new" id="new01">
+                    <div class="new-header">NEW01</div>
+                    <div class="new-body" id="new-body-01">
+                        <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
+                        <span>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</span>
+                        <span>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</span>
+                        <span>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span>
+                        <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue.</span>
+                        <span>Curabitur blandit tempus porttitor. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</span>
+                    </div>
+                </div>
+                <div class="new" id="new02">
+                    <div class="new-header">NEW02</div>
+                    <div class="new-body" id="new-body-02">
+                        <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
+                        <span>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</span>
+                        <span>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</span>
+                        <span>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span>
+                        <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue.</span>
+                        <span>Curabitur blandit tempus porttitor. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</span>
+                    </div>
+                </div>
+                <div class="new" id="new03">
+                    <div class="new-header">NEW03</div>
+                    <div class="new-body" id="new-body-03">
+                        <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
+                        <span>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</span>
+                        <span>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</span>
+                        <span>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span>
+                        <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue.</span>
+                        <span>Curabitur blandit tempus porttitor. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</span>
+                    </div>
+                </div>
+                <div class="new" id="new04">
+                    <div class="new-header">NEW04</div>
+                    <div class="new-body" id="new-body-04">
+                        <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
+                        <span>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</span>
+                        <span>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</span>
+                        <span>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span>
+                        <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue.</span>
+                        <span>Curabitur blandit tempus porttitor. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</span>
+                    </div>
+                </div>
+            </div>
             <div class="text"></div>
             <div class="images">
-                <div class="main-head">
+                <div class="main-table">
                     <div class="drag"> Drag & Drop</div>
                     <div class="select-images">
                         <select id="imageSelect">
