@@ -155,6 +155,7 @@
             font-size: 15px;
             font-weight: bold;
             color:white;
+            position:relative;
         }
         .highlight,.delete,.reset{
             background: #065291;
@@ -174,6 +175,31 @@
         .text-body{
             padding:5px;
             font-size:20px;
+        }
+        .caidat{
+            cursor:pointer;
+            background:rgb(2, 54, 88);
+            border-radius: 50%;
+            height:40px;
+            width:50px;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            color:white;
+            font-size: 20px;
+            padding:5px;
+            cursor:pointer;
+        }
+        .list{
+            position: absolute;
+            left: 77%; 
+            border: 1px solid #ccc;
+            margin-top: 20%;
+            border-radius: 5px;
+            background-color: rgb(212, 232, 242); 
+            color:black;
+            z-index: 1000; 
+            display: none;
         }
 
     /*Drap Drop hình  */
@@ -379,15 +405,28 @@
                     <span class="highlight" id="highlight-button">Highlight</span>
                     <span class="delete" id="delete-button">Delete</span>
                     <span class="reset" id="reset-button">Reset</span>
-                    <span class="sample-text">Sample Text</span>
+                    <span class="sample-text" id="sample-text">Sample Text</span>
                     <span> <input type="color" id="color-input"></span>
-                    <span class="caidat"> 
-                        <select name="setting" id="setting">
-                            <option value=""></option>
-                            <option value=""></option>
-                            <option value=""></option>
-                        </select>
-                    </span>
+                    <span class="caidat"> 🛠</span> 
+                    <div class="list">
+                        <div>
+                            <input type="checkbox" id="bold">
+                            <label for="checkbox"> Bold</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="italic">
+                            <label for="checkbox"> Italic</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="underline">
+                            <label for="checkbox"> Underline</label>
+                        </div>
+                        <div>
+                            <input type="color" id="background">
+                            <label for="color"> Background</label>
+                        </div>
+                    </div>
+
                 </div>
                 <div class="text-body">
 
@@ -432,11 +471,6 @@
 $(document).ready(function () { 
 //Phần DRAG & DROP HÌNH
     // Khi click chọn hình
-    const textBody = $('.text-body');
-
-    //Lưu nội dung gốc của text-body trước khi highlight
-    const originalContent = textBody.html();
-    
     $('#add').on('click', function () {
         const selectedOption = $('#imageSelect option:selected').val();
         const emoji = $('#imageSelect option:selected').text();
@@ -545,7 +579,10 @@ $(document).ready(function () {
 
   // Highlight text từ process text
     const highlightColor = '#ffff00'; // Màu tô đậm mặc định
-    
+    const textBody = $('.text-body');
+
+    // Lưu nội dung gốc của text-body trước khi highlight
+    const originalContent = textBody.html();
 
     // Tô đậm sau khi nhấn nút Highlight
     $('#highlight-button').click(function() {
@@ -580,12 +617,68 @@ $(document).ready(function () {
         }
     });
 
+    //Tạo list các checkbox cho cài đặt
+    $('.caidat').click(function() {
+        $('.list').toggle();
+    });
 
+    $('.caidat').click(function() {
+        $('.checkbox-list').toggle(); // Chuyển đổi hiển thị cho danh sách checkbox
+    });
 
+    // Tạo sự kiện khi checkbox thay đổi ảnh hưởng đến SampleText
+    $('#bold').change(function() {
+        updateSampleText();
+    });
 
+    $('#italic').change(function() {
+        updateSampleText();
+    });
+    $('#underline').change(function() {
+        updateSampleText();
+    });
 
+    // Sự kiện khi chọn màu nền và màu chữ
+    $('#background').on('input', function() {
+        updateSampleText();
+    });
 
+    $('#color-input').on('input', function() {
+        updateSampleText();
+    });
 });
+
+// Hàm cập nhật nội dung Sample Text
+function updateSampleText() {
+    let sampleText = $('#sample-text');
+
+    // Xóa tất cả các định dạng trước
+    sampleText.css({
+        'font-weight': 'normal',
+        'font-style': 'normal',
+        'text-decoration': 'none',
+        'color': '#000000', // Màu chữ mặc định
+        'background-color': 'white', // Màu nền mặc định
+    });
+
+    // Kiểm tra checkbox và áp dụng định dạng tương ứng
+    if ($('#bold').is(':checked')) {
+        sampleText.css('font-weight', 'bold');
+    }
+    if ($('#italic').is(':checked')) {
+        sampleText.css('font-style', 'italic');
+    }
+    if ($('#underline').is(':checked')) {
+        sampleText.css('text-decoration', 'underline');
+    }
+    // Cập nhật màu nền từ input màu nền
+    const backgroundColor = $('#background').val();
+    sampleText.css('background-color', backgroundColor); // Sử dụng 'background-color' để thay đổi màu nền
+
+    // Cập nhật màu chữ từ input màu chữ
+    const colorText = $('#color-input').val();
+    sampleText.css('color', colorText); // Đặt màu chữ
+};
 </script>
 </body>
 
