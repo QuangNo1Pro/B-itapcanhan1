@@ -160,6 +160,10 @@
             background: #065291;
             border-radius: 10px;
             padding:5px;
+            cursor:pointer;
+        }
+        .highlight{
+            color:white;
         }
         .sample-text{
             background-color:yellow;
@@ -369,26 +373,25 @@
             <div class="text">
                 <div class="text-header">
                     <span>Process Text</span>
-                    <span> <input type="text"></span>
-                    <span class="highlight">Highlight</span>
-                    <span class="delete">Delete</span>
-                    <span class="reset">Reset</span>
+                    <span>
+                        <input type="text" id="search-input">
+                    </span>
+                    <span class="highlight" id="highlight-button">Highlight</span>
+                    <span class="delete" id="delete-button">Delete</span>
+                    <span class="reset" id="reset-button">Reset</span>
                     <span class="sample-text">Sample Text</span>
-                    <span> <input type="color"></span>
+                    <span> <input type="color" id="color-input"></span>
                     <span class="caidat"> 
                         <select name="setting" id="setting">
-                            <option value="" class=""></option>
-                            <option value="" class=""></option>
-                            <option value="" class=""></option>
+                            <option value=""></option>
+                            <option value=""></option>
+                            <option value=""></option>
                         </select>
                     </span>
                 </div>
                 <div class="text-body">
 
                 </div>
-
-
-
             </div>
             <div class="images">
                 <div class="main-table">
@@ -499,7 +502,6 @@ $(document).ready(function () {
         const background = parent.find('.new-header'); // Lấy phần tử .new-header
         const textBody = $('.text-body'); // Lấy phần tử hiển thị nội dung để hiển thị trong text
 
-        // Lấy ID của phần tử cha để tạo data attribute duy nhất
         const parentId = parent.attr('id'); // Lấy ID của phần tử cha
 
         // Đổi biểu tượng ► thành ↓ và ngược lại
@@ -524,7 +526,7 @@ $(document).ready(function () {
             body.slideUp(); // Ẩn nội dung
 
             // Xóa nội dung tương ứng trong text-body khi phần tử này được tắt
-            textBody.find('.content-item[data-id="' + parentId + '"]').remove(); // Xóa nội dung có data-id tương ứng
+            textBody.find('.content-item[data-id="' + parentId + '"]').remove(); 
         }
     });
 
@@ -533,6 +535,34 @@ $(document).ready(function () {
         handle: '.toggle-icon-2', 
         axis: 'y', // Giới hạn kéo theo trục Y
     });
+
+//PHẦN PROCESS TEXT
+  // Highlight text từ process text
+
+  const highlightColor = '#ffff00'; // Màu tô đậm mặc định
+    const textBody = $('.text-body');
+
+    // Bắt sự kiện nhấn nút Highlight
+    $('#highlight-button').click(function() {
+        const searchTerm = $('#search-input').val().trim(); // Lấy từ tìm kiếm
+
+        if (searchTerm) {
+            // Tìm kiếm và tô đậm từ
+            textBody.find('span').each(function() {
+                const currentSpan = $(this);
+                const text = currentSpan.text();
+                const regex = new RegExp(`(${searchTerm})`, 'gi'); // Tạo biểu thức chính quy để tìm kiếm từ
+
+                // Nếu tìm thấy từ trong text
+                if (regex.test(text)) {
+                    const newText = text.replace(regex, `<span class="highlighted" style="background-color: ${highlightColor};">$1</span>`);
+                    currentSpan.html(newText); // Thay thế nội dung span
+                }
+            });
+        }
+    });
+
+
 
 
 
