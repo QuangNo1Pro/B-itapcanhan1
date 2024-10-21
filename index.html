@@ -538,14 +538,12 @@ $(document).ready(function () {
 
 //PHẦN PROCESS TEXT
   // Highlight text từ process text
-
-  const highlightColor = '#ffff00'; // Màu tô đậm mặc định
+    const highlightColor = '#ffff00'; // Màu tô đậm mặc định
     const textBody = $('.text-body');
 
-    // Bắt sự kiện nhấn nút Highlight
+    // Tô đậm sau khi nhấn nút Highlight
     $('#highlight-button').click(function() {
         const searchTerm = $('#search-input').val().trim(); // Lấy từ tìm kiếm
-
         if (searchTerm) {
             // Tìm kiếm và tô đậm từ
             textBody.find('span').each(function() {
@@ -560,6 +558,11 @@ $(document).ready(function () {
                 }
             });
         }
+    });
+
+    //Xóa các highlight khi nhấn Delete
+    $('#delete-button').click(function() {
+        textBody.find('.highlighted').remove(); // Xóa tất cả các phần tử highlighted
     });
 
 
