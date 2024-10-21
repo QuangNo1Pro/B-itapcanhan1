@@ -119,6 +119,7 @@
             cursor: pointer;
         }
         .new-body{
+            padding:5px;
             text-align: left;
             color:rgba(35, 132, 228, 0.683);
             background:white;
@@ -138,10 +139,40 @@
     /* Process Text */
         .text {
             border: 2px solid black;
-            background: #c98208;
+            background: white;
             border-radius: 5px;
-
         }
+        .text-header{
+            height:10%;
+            display:flex;
+            flex-direction: row;
+            gap:15px;
+            padding-left: 5px;
+            padding-right: 5px;
+            background:#3e80b5;
+            justify-content: center;
+            align-items: center;
+            font-size: 15px;
+            font-weight: bold;
+            color:white;
+        }
+        .highlight,.delete,.reset{
+            background: #065291;
+            border-radius: 10px;
+            padding:5px;
+        }
+        .sample-text{
+            background-color:yellow;
+            color:red;
+            border:2px solid black;
+            padding:2px;
+        }
+        .text-body{
+            padding:5px;
+            font-size:20px;
+        }
+
+    /*Drap Drop hình  */
         /* Hình thêm vào */
         .images {
             border: 2px solid black;
@@ -207,6 +238,8 @@
         /* Hình con */
         .image {
             display: flex;
+            margin-top: 20px;
+            margin-bottom: 20px;
             flex-direction: column;
             align-items: center;
             font-size: 50px;
@@ -333,7 +366,30 @@
                     </div>
                 </div>
             </div>
-            <div class="text"></div>
+            <div class="text">
+                <div class="text-header">
+                    <span>Process Text</span>
+                    <span> <input type="text"></span>
+                    <span class="highlight">Highlight</span>
+                    <span class="delete">Delete</span>
+                    <span class="reset">Reset</span>
+                    <span class="sample-text">Sample Text</span>
+                    <span> <input type="color"></span>
+                    <span class="caidat"> 
+                        <select name="setting" id="setting">
+                            <option value="" class=""></option>
+                            <option value="" class=""></option>
+                            <option value="" class=""></option>
+                        </select>
+                    </span>
+                </div>
+                <div class="text-body">
+
+                </div>
+
+
+
+            </div>
             <div class="images">
                 <div class="main-table">
                     <div class="drag"> Drag & Drop</div>
@@ -371,7 +427,7 @@
     </div>
     <script>
 $(document).ready(function () { 
-//Phần DRAG & DROP
+//Phần DRAG & DROP HÌNH
     // Khi click chọn hình
     $('#add').on('click', function () {
         const selectedOption = $('#imageSelect option:selected').val();
@@ -440,27 +496,41 @@ $(document).ready(function () {
         const body = parent.find('.new-body'); // Tìm phần tử .new-body trong phần tử cha
         const icon_1 = parent.find('.toggle-icon-1'); // Lấy biểu tượng ►
         const icon_2 = parent.find('.toggle-icon-2'); // Lấy biểu tượng ↕ 
-        const background=parent.find('.new-header');
+        const background = parent.find('.new-header'); // Lấy phần tử .new-header
+        const textBody = $('.text-body'); // Lấy phần tử hiển thị nội dung để hiển thị trong text
+
+        // Lấy ID của phần tử cha để tạo data attribute duy nhất
+        const parentId = parent.attr('id'); // Lấy ID của phần tử cha
 
         // Đổi biểu tượng ► thành ↓ và ngược lại
         if (icon_1.text().trim() === '►') {
+            // Nếu phần tử đang đóng
             icon_1.text('↓'); // Đổi ► thành ↓
             icon_1.css('color', 'white'); 
             icon_2.css('color', 'white'); 
-            background.css('background-color','#c98208')
+            background.css('background-color', '#c98208'); // Đổi màu nền khi mở
             body.slideDown(); // Hiển thị nội dung
+
+            // Thêm nội dung mới vào text-body với thuộc tính dữ liệu để dễ dàng quản lý
+            const newContent = $('<span class="content-item" data-id="' + parentId + '">' + body.html() + '</span>'); 
+            textBody.append(newContent); // Thêm nội dung mới vào cuối text-body
+
         } else {
+            // Nếu phần tử đang mở
             icon_1.text('►'); // Đổi ↓ thành ►
             icon_1.css('color', 'black'); 
             icon_2.css('color', 'black'); 
-            background.css('background-color','#f4bf64')
+            background.css('background-color', '#f4bf64'); // Đổi màu nền khi đóng
             body.slideUp(); // Ẩn nội dung
+
+            // Xóa nội dung tương ứng trong text-body khi phần tử này được tắt
+            textBody.find('.content-item[data-id="' + parentId + '"]').remove(); // Xóa nội dung có data-id tương ứng
         }
     });
 
     //Chức năng kéo thả new '↕'
     $('.side').sortable({
-        handle: '.toggle-icon-2', // Sử dụng biểu tượng ↕ làm tay cầm để kéo
+        handle: '.toggle-icon-2', 
         axis: 'y', // Giới hạn kéo theo trục Y
     });
 
