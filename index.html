@@ -99,26 +99,43 @@
             display:flex;
             flex-direction: column;
             gap:3px;
+            grid-column: 1/2;
+            grid-row: 1/3;
         }
         .new{
-            border: 2px solid black;
             display:grid;
+            overflow:hidden;
+            border:2px solid black;
+            border-radius: 5px;
         }
         .new-header{
             display:flex;
             text-align: center;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
             color:white;
             background:#f4bf64;
             padding:5px;
+            cursor: pointer;
         }
         .new-body{
             text-align: left;
             color:rgba(35, 132, 228, 0.683);
             background:white;
+            display:none;
         }
-        /* Process Text */
+        .toggle-icon-1,.toggle-icon-2{
+            font-size:16px;
+            font-weight: bold;
+            user-select: none;
+            color:black;
+            cursor:pointer;
+        }
+        .active.toggle-icon-1,active.toggle-icon-2{
+            color:white;
+        }
+        
+    /* Process Text */
         .text {
             border: 2px solid black;
             background: #c98208;
@@ -260,47 +277,59 @@
         <div class="main">
             <div class="side">
                 <div class="new" id="new01">
-                    <div class="new-header">NEW01</div>
+                    <div class="new-header">
+                        <span class="toggle-icon-1">►</span>
+                        <span>NEW01</span>
+                        <span class="toggle-icon-2">↕</span>
+                    </div>
                     <div class="new-body" id="new-body-01">
                         <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
                         <span>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</span>
                         <span>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</span>
                         <span>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span>
                         <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue.</span>
-                        <span>Curabitur blandit tempus porttitor. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</span>
                     </div>
                 </div>
                 <div class="new" id="new02">
-                    <div class="new-header">NEW02</div>
+                    <div class="new-header">
+                        <span class="toggle-icon-1">►</span>
+                        <span>NEW02</span>
+                        <span class="toggle-icon-2">↕</span>
+                    </div>
                     <div class="new-body" id="new-body-02">
                         <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
                         <span>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</span>
                         <span>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</span>
                         <span>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span>
                         <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue.</span>
-                        <span>Curabitur blandit tempus porttitor. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</span>
                     </div>
                 </div>
                 <div class="new" id="new03">
-                    <div class="new-header">NEW03</div>
+                    <div class="new-header">
+                        <span class="toggle-icon-1">►</span>
+                        <span>NEW03</span>
+                        <span class="toggle-icon-2">↕</span>
+                    </div>
                     <div class="new-body" id="new-body-03">
                         <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
                         <span>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</span>
                         <span>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</span>
                         <span>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span>
                         <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue.</span>
-                        <span>Curabitur blandit tempus porttitor. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</span>
                     </div>
                 </div>
                 <div class="new" id="new04">
-                    <div class="new-header">NEW04</div>
+                    <div class="new-header">
+                        <span class="toggle-icon-1">►</span>
+                        <span>NEW04</span>
+                        <span class="toggle-icon-2">↕</span>
+                    </div>
                     <div class="new-body" id="new-body-04">
                         <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
                         <span>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</span>
                         <span>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</span>
                         <span>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span>
                         <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue.</span>
-                        <span>Curabitur blandit tempus porttitor. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</span>
                     </div>
                 </div>
             </div>
@@ -387,24 +416,58 @@ $(document).ready(function () {
     }
     // Khởi tạo sortable ngay từ đầu
     makeSortable();
-});
+
 
 //PHẦN NAV & FOOTER
    $('.menu').on('click', function(){
-    //Lấy id từng Nav
-    const menuId=$(this).attr('id');
+        //Lấy id từng Nav
+        const menuId=$(this).attr('id');
 
-    // Xóa tô màu menu và footer
-    $('.menu, .item').removeClass('decorate-menu');
+        // Xóa tô màu menu và footer
+        $('.menu, .item').removeClass('decorate-menu');
 
-    //Tô màu cho menu của Nav
-    $(this).toggleClass('decorate-menu');
+        //Tô màu cho menu của Nav
+        $(this).toggleClass('decorate-menu');
 
-    //Tô màu cho menu của footer
-    $('.footer #' + menuId.replace('menu', 'f_menu')).toggleClass('decorate-menu');
+        //Tô màu cho menu của footer
+        $('.footer #' + menuId.replace('menu', 'f_menu')).toggleClass('decorate-menu');
+        });
+
+//PHẦN SIDE HIỂN THỊ NỘI DUNG VÀ KÉO THẢ
+    // Khi nhấp vào biểu tượng ►, đổi thành ↓ và hiển thị nội dung
+    $('.toggle-icon-1').click(function () {
+        const parent = $(this).closest('.new'); // Lấy phần tử cha gần nhất có class là .new
+        const body = parent.find('.new-body'); // Tìm phần tử .new-body trong phần tử cha
+        const icon_1 = parent.find('.toggle-icon-1'); // Lấy biểu tượng ►
+        const icon_2 = parent.find('.toggle-icon-2'); // Lấy biểu tượng ↕ 
+        const background=parent.find('.new-header');
+
+        // Đổi biểu tượng ► thành ↓ và ngược lại
+        if (icon_1.text().trim() === '►') {
+            icon_1.text('↓'); // Đổi ► thành ↓
+            icon_1.css('color', 'white'); 
+            icon_2.css('color', 'white'); 
+            background.css('background-color','#c98208')
+            body.slideDown(); // Hiển thị nội dung
+        } else {
+            icon_1.text('►'); // Đổi ↓ thành ►
+            icon_1.css('color', 'black'); 
+            icon_2.css('color', 'black'); 
+            background.css('background-color','#f4bf64')
+            body.slideUp(); // Ẩn nội dung
+        }
+    });
+
+    //Chức năng kéo thả new '↕'
+    $('.side').sortable({
+        handle: '.toggle-icon-2', // Sử dụng biểu tượng ↕ làm tay cầm để kéo
+        axis: 'y', // Giới hạn kéo theo trục Y
+    });
+
+
+
+
 });
-
-
 </script>
 </body>
 
