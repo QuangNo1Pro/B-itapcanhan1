@@ -432,6 +432,11 @@
 $(document).ready(function () { 
 //Phần DRAG & DROP HÌNH
     // Khi click chọn hình
+    const textBody = $('.text-body');
+
+    //Lưu nội dung gốc của text-body trước khi highlight
+    const originalContent = textBody.html();
+    
     $('#add').on('click', function () {
         const selectedOption = $('#imageSelect option:selected').val();
         const emoji = $('#imageSelect option:selected').text();
@@ -537,9 +542,10 @@ $(document).ready(function () {
     });
 
 //PHẦN PROCESS TEXT
+
   // Highlight text từ process text
     const highlightColor = '#ffff00'; // Màu tô đậm mặc định
-    const textBody = $('.text-body');
+    
 
     // Tô đậm sau khi nhấn nút Highlight
     $('#highlight-button').click(function() {
@@ -562,7 +568,16 @@ $(document).ready(function () {
 
     //Xóa các highlight khi nhấn Delete
     $('#delete-button').click(function() {
-        textBody.find('.highlighted').remove(); // Xóa tất cả các phần tử highlighted
+        textBody.find('.highlighted').remove(); 
+    });
+
+    // Reset lại bài văn khi nhấn nút Reset
+    $('#reset-button').click(function () {
+        if (originalContent ==='') {
+            textBody.html(originalContent); // Khôi phục nội dung gốc
+        } else {
+            alert('Không có nội dung gốc để khôi phục!');
+        }
     });
 
 
