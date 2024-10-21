@@ -32,7 +32,8 @@
             justify-content: center;
             align-items: center;
         }
-    /* Header */
+
+        /* Header */
         .header {
             width: 100%;
             height: 58px;
@@ -43,11 +44,10 @@
             line-height: 60px;
             font-size: 20px;
             font-weight: bold;
-            color:white;
-
+            color: white;
         }
 
-    /* Nav */
+        /* Nav */
         .nav {
             display: flex;
             flex-direction: row;
@@ -63,10 +63,10 @@
             box-shadow: 2px 2px 5px rgba(48, 47, 47, 0.833);
             background-color: rgb(131, 202, 240);
             color: #044173;
-            cursor:pointer;
+            cursor: pointer;
         }
 
-    /* Main */
+        /* Main */
         .main {
             flex: 1;
             margin-top: 5px;
@@ -80,6 +80,7 @@
             border-top: 2px solid #2196f3;
             border-bottom: 2px solid #2196f3;
         }
+
         .main-table {
             height: 10%;
             padding: 2px;
@@ -96,113 +97,129 @@
         .side {
             border-radius: 5px;
             background-color: white;
-            display:flex;
+            display: flex;
             flex-direction: column;
-            gap:3px;
+            gap: 3px;
             grid-column: 1/2;
             grid-row: 1/3;
         }
-        .new{
-            display:grid;
-            overflow:hidden;
-            border:2px solid black;
+
+        .new {
+            display: grid;
+            overflow: hidden;
+            border: 2px solid black;
             border-radius: 5px;
         }
-        .new-header{
-            display:flex;
+
+        .new-header {
+            display: flex;
             text-align: center;
             justify-content: space-between;
             align-items: center;
-            color:white;
-            background:#f4bf64;
-            padding:5px;
+            color: white;
+            background: #f4bf64;
+            padding: 5px;
             cursor: pointer;
         }
-        .new-body{
-            padding:5px;
+
+        .new-body {
+            padding: 5px;
             text-align: left;
-            color:rgba(35, 132, 228, 0.683);
-            background:white;
-            display:none;
+            color: rgba(35, 132, 228, 0.683);
+            background: white;
+            display: none;
         }
-        .toggle-icon-1,.toggle-icon-2{
-            font-size:16px;
+
+        .toggle-icon-1,
+        .toggle-icon-2 {
+            font-size: 16px;
             font-weight: bold;
             user-select: none;
-            color:black;
-            cursor:pointer;
+            color: black;
+            cursor: pointer;
         }
-        .active.toggle-icon-1,active.toggle-icon-2{
-            color:white;
+
+        .active.toggle-icon-1,
+        active.toggle-icon-2 {
+            color: white;
         }
-        
-    /* Process Text */
+
+        /* Process Text */
         .text {
             border: 2px solid black;
             background: white;
             border-radius: 5px;
         }
-        .text-header{
-            height:10%;
-            display:flex;
+
+        .text-header {
+            height: 10%;
+            display: flex;
             flex-direction: row;
-            gap:15px;
+            gap: 15px;
             padding-left: 5px;
             padding-right: 5px;
-            background:#3e80b5;
+            background: #3e80b5;
             justify-content: center;
             align-items: center;
             font-size: 15px;
             font-weight: bold;
-            color:white;
-            position:relative;
+            color: white;
+            position: relative;
         }
-        .highlight,.delete,.reset{
+
+        .highlight,
+        .delete,
+        .reset {
             background: #065291;
             border-radius: 10px;
-            padding:5px;
-            cursor:pointer;
+            padding: 5px;
+            cursor: pointer;
         }
-        .highlight{
-            color:white;
+
+        .highlight {
+            color: white;
         }
-        .sample-text{
-            background-color:yellow;
-            color:red;
-            border:2px solid black;
-            padding:2px;
+
+        .sample-text {
+            background-color: yellow;
+            color: red;
+            border: 2px solid black;
+            padding: 2px;
         }
-        .text-body{
-            padding:5px;
-            font-size:20px;
+
+        .text-body {
+            padding: 5px;
+            font-size: 20px;
         }
-        .caidat{
-            cursor:pointer;
-            background:rgb(2, 54, 88);
+
+        .caidat {
+            cursor: pointer;
+            background: rgb(2, 54, 88);
             border-radius: 50%;
-            height:40px;
-            width:50px;
-            display:flex;
+            height: 40px;
+            width: 50px;
+            display: flex;
             justify-content: center;
             align-items: center;
-            color:white;
+            color: white;
             font-size: 20px;
-            padding:5px;
-            cursor:pointer;
+            padding: 5px;
+            cursor: pointer;
         }
-        .list{
+
+        .list {
             position: absolute;
-            left: 77%; 
+            left: 77%;
             border: 1px solid #ccc;
             margin-top: 20%;
             border-radius: 5px;
-            background-color: rgb(212, 232, 242); 
-            color:black;
-            z-index: 1000; 
+            background-color: rgb(212, 232, 242);
+            color: black;
+            z-index: 1000;
             display: none;
         }
 
-    /*Drap Drop hình  */
+        /*Drap Drop hình  */
         /* Hình thêm vào */
         .images {
             border: 2px solid black;
@@ -213,12 +230,14 @@
             flex-direction: column;
             margin-bottom: 5px;
         }
+
         /* Chứa tên mục của khung chứa hình */
         .drap {
             display: flex;
             justify-content: center;
             align-items: center;
         }
+
         /* Chứa các lựa chọn hình */
         .select-images {
             display: flex;
@@ -226,21 +245,23 @@
             align-items: center;
             gap: 10px;
         }
+
         /* Nút submit */
         .add {
             display: flex;
             justify-content: center;
             align-items: center;
         }
-       
+
         #imageSelect {
             font-size: 20px;
             padding: 5px;
             border-radius: 5px;
             border: 2px solid black;
         }
+
         #add {
-            padding:5px;
+            padding: 5px;
             font-size: 15px;
             border-radius: 10px;
             border: 2px solid #2196f3;
@@ -262,9 +283,10 @@
             margin-bottom: 5px;
             padding: 10px;
             min-height: 100px;
-            position: relative; 
+            position: relative;
 
         }
+
         /* Hình con */
         .image {
             display: flex;
@@ -278,8 +300,9 @@
             padding: 10px;
             background: #1f659e;
             cursor: move;
-            position: relative; 
+            position: relative;
         }
+
         /* Tên hình */
         .image-name {
             margin-top: 5px;
@@ -289,11 +312,16 @@
 
         /* Tạo hiệu ứng cho vùng giữ chổ kéo thả */
         .image-placeholder {
-            border: 2px dashed #ccc; /* Viền cho vùng giữ chỗ */
-            background: rgba(204, 204, 204, 0.5); /* Màu nền cho vùng giữ chỗ */
-            height: 100px; /* Chiều cao tối thiểu cho vùng giữ chỗ */
-            width: 100px; /* Chiều rộng tối thiểu cho vùng giữ chỗ */
-            margin: 5px; /* Khoảng cách giữa các hình ảnh */
+            border: 2px dashed #ccc;
+            /* Viền cho vùng giữ chỗ */
+            background: rgba(204, 204, 204, 0.5);
+            /* Màu nền cho vùng giữ chỗ */
+            height: 100px;
+            /* Chiều cao tối thiểu cho vùng giữ chỗ */
+            width: 100px;
+            /* Chiều rộng tối thiểu cho vùng giữ chỗ */
+            margin: 5px;
+            /* Khoảng cách giữa các hình ảnh */
         }
 
         /* Footer */
@@ -312,18 +340,19 @@
             border: 1px #c98208;
             box-shadow: 2px 2px 5px rgba(48, 47, 47, 0.833);
             color: #c98208;
-            cursor:pointer;
+            cursor: pointer;
         }
+
         /* Các menu */
-        .item{
+        .item {
             font-size: 10px;
             text-decoration: underline;
         }
+
         /* Highlight menu */
-        .decorate-menu{
-            color:#f79c00;
+        .decorate-menu {
+            color: #f79c00;
         }
-        
     </style>
 </head>
 
@@ -346,11 +375,16 @@
                         <span class="toggle-icon-2">↕</span>
                     </div>
                     <div class="new-body" id="new-body-01">
-                        <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
-                        <span>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</span>
-                        <span>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</span>
-                        <span>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span>
-                        <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue.</span>
+                        <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt
+                            ut labore et dolore magna aliqua.</span>
+                        <span>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                            commodo consequat.</span>
+                        <span>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                            nulla pariatur.</span>
+                        <span>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
+                            anim id est laborum.</span>
+                        <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a
+                            pharetra augue.</span>
                     </div>
                 </div>
                 <div class="new" id="new02">
@@ -360,11 +394,16 @@
                         <span class="toggle-icon-2">↕</span>
                     </div>
                     <div class="new-body" id="new-body-02">
-                        <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
-                        <span>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</span>
-                        <span>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</span>
-                        <span>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span>
-                        <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue.</span>
+                        <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt
+                            ut labore et dolore magna aliqua.</span>
+                        <span>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                            commodo consequat.</span>
+                        <span>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                            nulla pariatur.</span>
+                        <span>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
+                            anim id est laborum.</span>
+                        <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a
+                            pharetra augue.</span>
                     </div>
                 </div>
                 <div class="new" id="new03">
@@ -374,11 +413,16 @@
                         <span class="toggle-icon-2">↕</span>
                     </div>
                     <div class="new-body" id="new-body-03">
-                        <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
-                        <span>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</span>
-                        <span>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</span>
-                        <span>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span>
-                        <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue.</span>
+                        <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt
+                            ut labore et dolore magna aliqua.</span>
+                        <span>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                            commodo consequat.</span>
+                        <span>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                            nulla pariatur.</span>
+                        <span>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
+                            anim id est laborum.</span>
+                        <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a
+                            pharetra augue.</span>
                     </div>
                 </div>
                 <div class="new" id="new04">
@@ -388,11 +432,16 @@
                         <span class="toggle-icon-2">↕</span>
                     </div>
                     <div class="new-body" id="new-body-04">
-                        <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
-                        <span>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</span>
-                        <span>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</span>
-                        <span>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span>
-                        <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue.</span>
+                        <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt
+                            ut labore et dolore magna aliqua.</span>
+                        <span>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                            commodo consequat.</span>
+                        <span>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                            nulla pariatur.</span>
+                        <span>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
+                            anim id est laborum.</span>
+                        <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a
+                            pharetra augue.</span>
                     </div>
                 </div>
             </div>
@@ -407,7 +456,7 @@
                     <span class="reset" id="reset-button">Reset</span>
                     <span class="sample-text" id="sample-text">Sample Text</span>
                     <span> <input type="color" id="color-input"></span>
-                    <span class="caidat"> 🛠</span> 
+                    <span class="caidat"> 🛠</span>
                     <div class="list">
                         <div>
                             <input type="checkbox" id="bold">
@@ -457,7 +506,7 @@
         <div class="footer">
             Copyright © LeVanQuang
             <div class="item" id="f_menu1">Menu1</div>
-            <div >|</div>
+            <div>|</div>
             <div class="item" id="f_menu2">Menu2</div>
             <div>|</div>
             <div class="item" id="f_menu3">Menu3</div>
@@ -468,230 +517,195 @@
         </div>
     </div>
     <script>
-$(document).ready(function () { 
-//Phần DRAG & DROP HÌNH
-    // Khi click chọn hình
-    $('#add').on('click', function () {
-        const selectedOption = $('#imageSelect option:selected').val();
-        const emoji = $('#imageSelect option:selected').text();
+        $(document).ready(function() {
+            //Phần DRAG & DROP HÌNH
+            // Khi click chọn hình
+            $('#add').on('click', function() {
+                const selectedOption = $('#imageSelect option:selected').val();
+                const emoji = $('#imageSelect option:selected').text();
+                // Tạo phần tử hình ảnh mới
+                const imageElement = $('<div class="image"></div>');
+                imageElement.append($('<div></div>').text(emoji).css('font-size', '50px'));
+                imageElement.append($('<div class="image-name"></div>').text(selectedOption));
+                // Thêm hình ảnh vào phần image-display
+                $('#imageDisplay').append(imageElement);
+                // Cập nhật lại sortable
+                makeSortable();
+            });
 
-        // Tạo phần tử hình ảnh mới
-        const imageElement = $('<div class="image"></div>');
-        imageElement.append($('<div></div>').text(emoji).css('font-size', '50px'));
-        imageElement.append($('<div class="image-name"></div>').text(selectedOption));
-
-        // Thêm hình ảnh vào phần image-display
-        $('#imageDisplay').append(imageElement);
-
-        // Cập nhật lại sortable
-        makeSortable(); 
-    });
-    function makeSortable() {
-        $('#imageDisplay').sortable({
-            items: '.image',
-            placeholder: 'image-placeholder', // Vùng giữ chỗ
-            tolerance: 'intersect', // Nhận diện dựa trên giao cắt giữa các phần tử
-            axis: 'x', // Giới hạn kéo theo chiều ngang
-            start: function (event, ui) {
-                ui.item.css({
-                    opacity: '0.6', // Giảm độ trong suốt trong khi kéo
-                    zIndex: '1000', // Đảm bảo phần tử đang kéo luôn ở trên cùng
-                });
-                ui.placeholder.height(ui.item.outerHeight());
-                ui.placeholder.width(ui.item.outerWidth());
-            },
-            over: function (event, ui) {
-                // Đảm bảo vùng giữ chỗ sẽ được chèn chính xác giữa 2 phần tử khi kéo qua
-                ui.placeholder.css('visibility', 'visible');
-            },
-            stop: function (event, ui) {
-                ui.item.css({
-                    opacity: '1', // Khôi phục độ trong suốt
-                    zIndex: '1', // Khôi phục z-index
-                });
+            function makeSortable() {
+                $('#imageDisplay').sortable({
+                    items: '.image',
+                    placeholder: 'image-placeholder', // Vùng giữ chỗ
+                    tolerance: 'intersect', // Nhận diện dựa trên giao cắt giữa các phần tử
+                    axis: 'x', // Giới hạn kéo theo chiều ngang
+                    start: function(event, ui) {
+                        ui.item.css({
+                            opacity: '0.6', // Giảm độ trong suốt trong khi kéo
+                            zIndex: '1000', // Đảm bảo phần tử đang kéo luôn ở trên cùng
+                        });
+                        ui.placeholder.height(ui.item.outerHeight());
+                        ui.placeholder.width(ui.item.outerWidth());
+                    },
+                    over: function(event, ui) {
+                        // Đảm bảo vùng giữ chỗ sẽ được chèn chính xác giữa 2 phần tử khi kéo qua
+                        ui.placeholder.css('visibility', 'visible');
+                    },
+                    stop: function(event, ui) {
+                        ui.item.css({
+                            opacity: '1', // Khôi phục độ trong suốt
+                            zIndex: '1', // Khôi phục z-index
+                        });
+                    }
+                }).disableSelection();
             }
-        }).disableSelection();
-    }
-    // Khởi tạo sortable ngay từ đầu
-    makeSortable();
-
-
-//PHẦN NAV & FOOTER
-   $('.menu').on('click', function(){
-        //Lấy id từng Nav
-        const menuId=$(this).attr('id');
-
-        // Xóa tô màu menu và footer
-        $('.menu, .item').removeClass('decorate-menu');
-
-        //Tô màu cho menu của Nav
-        $(this).toggleClass('decorate-menu');
-
-        //Tô màu cho menu của footer
-        $('.footer #' + menuId.replace('menu', 'f_menu')).toggleClass('decorate-menu');
-        });
-
-//PHẦN SIDE HIỂN THỊ NỘI DUNG VÀ KÉO THẢ
-    // Khi nhấp vào biểu tượng ►, đổi thành ↓ và hiển thị nội dung
-    $('.toggle-icon-1').click(function () {
-        const parent = $(this).closest('.new'); // Lấy phần tử cha gần nhất có class là .new
-        const body = parent.find('.new-body'); // Tìm phần tử .new-body trong phần tử cha
-        const icon_1 = parent.find('.toggle-icon-1'); // Lấy biểu tượng ►
-        const icon_2 = parent.find('.toggle-icon-2'); // Lấy biểu tượng ↕ 
-        const background = parent.find('.new-header'); // Lấy phần tử .new-header
-        const textBody = $('.text-body'); // Lấy phần tử hiển thị nội dung để hiển thị trong text
-
-        const parentId = parent.attr('id'); // Lấy ID của phần tử cha
-
-        // Đổi biểu tượng ► thành ↓ và ngược lại
-        if (icon_1.text().trim() === '►') {
-            // Nếu phần tử đang đóng
-            icon_1.text('↓'); // Đổi ► thành ↓
-            icon_1.css('color', 'white'); 
-            icon_2.css('color', 'white'); 
-            background.css('background-color', '#c98208'); // Đổi màu nền khi mở
-            body.slideDown(); // Hiển thị nội dung
-
-            // Thêm nội dung mới vào text-body với thuộc tính dữ liệu để dễ dàng quản lý
-            const newContent = $('<span class="content-item" data-id="' + parentId + '">' + body.html() + '</span>'); 
-            textBody.append(newContent); // Thêm nội dung mới vào cuối text-body
-
-        } else {
-            // Nếu phần tử đang mở
-            icon_1.text('►'); // Đổi ↓ thành ►
-            icon_1.css('color', 'black'); 
-            icon_2.css('color', 'black'); 
-            background.css('background-color', '#f4bf64'); // Đổi màu nền khi đóng
-            body.slideUp(); // Ẩn nội dung
-
-            // Xóa nội dung tương ứng trong text-body khi phần tử này được tắt
-            textBody.find('.content-item[data-id="' + parentId + '"]').remove(); 
-        }
-    });
-
-    //Chức năng kéo thả new '↕'
-    $('.side').sortable({
-        handle: '.toggle-icon-2', 
-        axis: 'y', // Giới hạn kéo theo trục Y
-    });
-
-//PHẦN PROCESS TEXT
-
-  // Highlight text từ process text
-    const highlightColor = '#ffff00'; // Màu tô đậm mặc định
-    const textBody = $('.text-body');
-
-    // Lưu nội dung gốc của text-body trước khi highlight
-    const originalContent = textBody.html();
-
-    // Tô đậm sau khi nhấn nút Highlight
-    $('#highlight-button').click(function() {
-        const searchTerm = $('#search-input').val().trim(); // Lấy từ tìm kiếm
-        if (searchTerm) {
-            // Tìm kiếm và tô đậm từ
-            textBody.find('span').each(function() {
-                const currentSpan = $(this);
-                const text = currentSpan.text();
-                const regex = new RegExp(`(${searchTerm})`, 'gi'); // Tạo biểu thức chính quy để tìm kiếm từ
-
-                // Nếu tìm thấy từ trong text
-                if (regex.test(text)) {
-                    const newText = text.replace(regex, `<span class="highlighted" style="background-color: ${highlightColor};">$1</span>`);
-                    currentSpan.html(newText); // Thay thế nội dung span
+            // Khởi tạo sortable ngay từ đầu
+            makeSortable();
+            //PHẦN NAV & FOOTER
+            $('.menu').on('click', function() {
+                //Lấy id từng Nav
+                const menuId = $(this).attr('id');
+                // Xóa tô màu menu và footer
+                $('.menu, .item').removeClass('decorate-menu');
+                //Tô màu cho menu của Nav
+                $(this).toggleClass('decorate-menu');
+                //Tô màu cho menu của footer
+                $('.footer #' + menuId.replace('menu', 'f_menu')).toggleClass('decorate-menu');
+            });
+            //PHẦN SIDE HIỂN THỊ NỘI DUNG VÀ KÉO THẢ
+            // Khi nhấp vào biểu tượng ►, đổi thành ↓ và hiển thị nội dung
+            $('.toggle-icon-1').click(function() {
+                const parent = $(this).closest('.new'); // Lấy phần tử cha gần nhất có class là .new
+                const body = parent.find('.new-body'); // Tìm phần tử .new-body trong phần tử cha
+                const icon_1 = parent.find('.toggle-icon-1'); // Lấy biểu tượng ►
+                const icon_2 = parent.find('.toggle-icon-2'); // Lấy biểu tượng ↕ 
+                const background = parent.find('.new-header'); // Lấy phần tử .new-header
+                const textBody = $('.text-body'); // Lấy phần tử hiển thị nội dung để hiển thị trong text
+                const parentId = parent.attr('id'); // Lấy ID của phần tử cha
+                // Đổi biểu tượng ► thành ↓ và ngược lại
+                if (icon_1.text().trim() === '►') {
+                    // Nếu phần tử đang đóng
+                    icon_1.text('↓'); // Đổi ► thành ↓
+                    icon_1.css('color', 'white');
+                    icon_2.css('color', 'white');
+                    background.css('background-color', '#c98208'); // Đổi màu nền khi mở
+                    body.slideDown(); // Hiển thị nội dung
+                    // Thêm nội dung mới vào text-body với thuộc tính dữ liệu để dễ dàng quản lý
+                    const newContent = $('<span class="content-item" data-id="' + parentId + '">' + body.html() + '</span>');
+                    textBody.append(newContent); // Thêm nội dung mới vào cuối text-body
+                } else {
+                    // Nếu phần tử đang mở
+                    icon_1.text('►'); // Đổi ↓ thành ►
+                    icon_1.css('color', 'black');
+                    icon_2.css('color', 'black');
+                    background.css('background-color', '#f4bf64'); // Đổi màu nền khi đóng
+                    body.slideUp(); // Ẩn nội dung
+                    // Xóa nội dung tương ứng trong text-body khi phần tử này được tắt
+                    textBody.find('.content-item[data-id="' + parentId + '"]').remove();
                 }
             });
-        }
-    });
-
-    //Xóa các highlight khi nhấn Delete
-    $('#delete-button').click(function() {
-        textBody.find('.highlighted').remove(); 
-    });
-
-    // Reset lại bài văn khi nhấn nút Reset
-    $('#reset-button').click(function () {
-        if (originalContent ==='') {
-            textBody.html(originalContent); // Khôi phục nội dung gốc
-        } else {
-            alert('Không có nội dung gốc để khôi phục!');
-        }
-    });
-
-    //Tạo list các checkbox cho cài đặt
-    $('.caidat').click(function() {
-        $('.list').toggle();
-    });
-
-    $('.caidat').click(function() {
-        $('.checkbox-list').toggle(); // Chuyển đổi hiển thị cho danh sách checkbox
-    });
-
-    // Tạo sự kiện khi checkbox thay đổi ảnh hưởng đến SampleText và Text Body
-    $('#bold').change(function() {
-        updateTextStyles();
-    });
-
-    $('#italic').change(function() {
-        updateTextStyles();
-    });
-
-    $('#underline').change(function() {
-        updateTextStyles();
-    });
-
-    // Sự kiện khi chọn màu nền và màu chữ
-    $('#background').on('input', function() {
-        updateTextStyles();
-    });
-
-    $('#color-input').on('input', function() {
-        updateTextStyles();
-    });
-});
-
-// Hàm cập nhật nội dung Sample Text và Text Body
-function updateTextStyles() {
-    let sampleText = $('#sample-text');
-    let textBody = $('.text-body'); // Chọn text-body
-
-    // Xóa tất cả các định dạng trước
-    const defaultStyles = {
-        'font-weight': 'normal',
-        'font-style': 'normal',
-        'text-decoration': 'none', // Thêm để loại bỏ gạch chân
-        'color': '#000000', // Màu chữ mặc định
-        'background-color': 'white', // Màu nền mặc định
-    };
-
-    // Cập nhật các kiểu cho Sample Text
-    sampleText.css(defaultStyles);
-    textBody.css(defaultStyles); // Cập nhật text-body cùng lúc
-
-    // Kiểm tra checkbox và áp dụng định dạng tương ứng
-    if ($('#bold').is(':checked')) {
-        sampleText.css('font-weight', 'bold');
-        textBody.find('.highlighted').css('font-weight', 'bold'); // Đặt cho text-body
-    }
-    if ($('#italic').is(':checked')) {
-        sampleText.css('font-style', 'italic');
-        textBody.find('.highlighted').css('font-style', 'italic'); // Đặt cho text-body
-    }
-    if ($('#underline').is(':checked')) {
-        sampleText.css('text-decoration', 'underline');
-        textBody.find('.highlighted').css('text-decoration', 'underline'); // Đặt cho text-body
-    }
-
-    // Cập nhật màu nền từ input màu nền
-    const backgroundColor = $('#background').val();
-    sampleText.css('background-color', backgroundColor); // Sử dụng 'background-color' để thay đổi màu nền
-    textBody.find('.highlighted').css('background-color', backgroundColor); // Cập nhật cho text-body
-
-    // Cập nhật màu chữ từ input màu chữ
-    const colorText = $('#color-input').val();
-    sampleText.css('color', colorText); // Đặt màu chữ
-    textBody.find('.highlighted').css('color', colorText);
-};
-</script>
+            //Chức năng kéo thả new '↕'
+            $('.side').sortable({
+                handle: '.toggle-icon-2',
+                axis: 'y', // Giới hạn kéo theo trục Y
+            });
+            //PHẦN PROCESS TEXT
+            // Highlight text từ process text
+            const highlightColor = '#ffff00'; // Màu tô đậm mặc định
+            const textBody = $('.text-body');
+            // Lưu nội dung gốc của text-body trước khi highlight
+            const originalContent = textBody.html();
+            // Tô đậm sau khi nhấn nút Highlight
+            $('#highlight-button').click(function() {
+                const searchTerm = $('#search-input').val().trim(); // Lấy từ tìm kiếm
+                if (searchTerm) {
+                    // Tìm kiếm và tô đậm từ
+                    textBody.find('span').each(function() {
+                        const currentSpan = $(this);
+                        const text = currentSpan.text();
+                        const regex = new RegExp(`(${searchTerm})`,'gi'); // Tạo biểu thức chính quy để tìm kiếm từ
+                        // Nếu tìm thấy từ trong text
+                        if (regex.test(text)) {
+                            const newText = text.replace(regex,`<span class="highlighted" style="background-color: ${highlightColor};">$1</span>`);
+                            currentSpan.html(newText); // Thay thế nội dung span
+                        }
+                    });
+                }
+            });
+            //Xóa các highlight khi nhấn Delete
+            $('#delete-button').click(function() {
+                textBody.find('.highlighted').remove();
+            });
+            // Reset lại bài văn khi nhấn nút Reset
+            $('#reset-button').click(function() {
+                if (originalContent === '') {
+                    textBody.html(originalContent); // Khôi phục nội dung gốc
+                } else {
+                    alert('Không có nội dung gốc để khôi phục!');
+                }
+            });
+            //Tạo list các checkbox cho cài đặt
+            $('.caidat').click(function() {
+                $('.list').toggle();
+            });
+            $('.caidat').click(function() {
+                $('.checkbox-list').toggle(); // Chuyển đổi hiển thị cho danh sách checkbox
+            });
+            // Tạo sự kiện khi checkbox thay đổi ảnh hưởng đến SampleText và Text Body
+            $('#bold').change(function() {
+                updateTextStyles();
+            });
+            $('#italic').change(function() {
+                updateTextStyles();
+            });
+            $('#underline').change(function() {
+                updateTextStyles();
+            });
+            // Sự kiện khi chọn màu nền và màu chữ
+            $('#background').on('input', function() {
+                updateTextStyles();
+            });
+            $('#color-input').on('input', function() {
+                updateTextStyles();
+            });
+        });
+        // Hàm cập nhật nội dung Sample Text và Text Body
+        function updateTextStyles() {
+            let sampleText = $('#sample-text');
+            let textBody = $('.text-body'); // Chọn text-body
+            // Xóa tất cả các định dạng trước
+            const defaultStyles = {
+                'font-weight': 'normal', //in đậm
+                'font-style': 'normal', // nghiêng
+                'text-decoration': 'none', // gạch chân
+                'color': '#000000', // Màu chữ 
+                'background-color': 'white', // Backround
+            };
+            sampleText.css(defaultStyles); // Cập nhật các kiểu cho Sample Text
+            textBody.css(defaultStyles); // Cập nhật text-body cùng lúc
+            // Kiểm tra checkbox và áp dụng định dạng tương ứng
+            if ($('#bold').is(':checked')) {
+                sampleText.css('font-weight', 'bold');
+                textBody.find('.highlighted').css('font-weight', 'bold'); 
+            }
+            if ($('#italic').is(':checked')) {
+                sampleText.css('font-style', 'italic');
+                textBody.find('.highlighted').css('font-style', 'italic'); 
+            }
+            if ($('#underline').is(':checked')) {
+                sampleText.css('text-decoration', 'underline');
+                textBody.find('.highlighted').css('text-decoration', 'underline'); 
+            }
+            // Cập nhật màu nền từ input màu nền
+            const backgroundColor = $('#background').val();
+            sampleText.css('background-color', backgroundColor); 
+            textBody.find('.highlighted').css('background-color', backgroundColor); 
+            // Cập nhật màu chữ từ input màu chữ
+            const colorText = $('#color-input').val();
+            sampleText.css('color', colorText); 
+            textBody.find('.highlighted').css('color', colorText);
+        };
+    </script>
 </body>
 
 </html>
