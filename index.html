@@ -626,58 +626,70 @@ $(document).ready(function () {
         $('.checkbox-list').toggle(); // Chuyển đổi hiển thị cho danh sách checkbox
     });
 
-    // Tạo sự kiện khi checkbox thay đổi ảnh hưởng đến SampleText
+    // Tạo sự kiện khi checkbox thay đổi ảnh hưởng đến SampleText và Text Body
     $('#bold').change(function() {
-        updateSampleText();
+        updateTextStyles();
     });
 
     $('#italic').change(function() {
-        updateSampleText();
+        updateTextStyles();
     });
+
     $('#underline').change(function() {
-        updateSampleText();
+        updateTextStyles();
     });
 
     // Sự kiện khi chọn màu nền và màu chữ
     $('#background').on('input', function() {
-        updateSampleText();
+        updateTextStyles();
     });
 
     $('#color-input').on('input', function() {
-        updateSampleText();
+        updateTextStyles();
     });
 });
 
-// Hàm cập nhật nội dung Sample Text
-function updateSampleText() {
+// Hàm cập nhật nội dung Sample Text và Text Body
+function updateTextStyles() {
     let sampleText = $('#sample-text');
+    let textBody = $('.text-body'); // Chọn text-body
 
     // Xóa tất cả các định dạng trước
-    sampleText.css({
+    const defaultStyles = {
         'font-weight': 'normal',
         'font-style': 'normal',
-        'text-decoration': 'none',
+        'text-decoration': 'none', // Thêm để loại bỏ gạch chân
         'color': '#000000', // Màu chữ mặc định
         'background-color': 'white', // Màu nền mặc định
-    });
+    };
+
+    // Cập nhật các kiểu cho Sample Text
+    sampleText.css(defaultStyles);
+    textBody.css(defaultStyles); // Cập nhật text-body cùng lúc
 
     // Kiểm tra checkbox và áp dụng định dạng tương ứng
     if ($('#bold').is(':checked')) {
         sampleText.css('font-weight', 'bold');
+        textBody.find('.highlighted').css('font-weight', 'bold'); // Đặt cho text-body
     }
     if ($('#italic').is(':checked')) {
         sampleText.css('font-style', 'italic');
+        textBody.find('.highlighted').css('font-style', 'italic'); // Đặt cho text-body
     }
     if ($('#underline').is(':checked')) {
         sampleText.css('text-decoration', 'underline');
+        textBody.find('.highlighted').css('text-decoration', 'underline'); // Đặt cho text-body
     }
+
     // Cập nhật màu nền từ input màu nền
     const backgroundColor = $('#background').val();
     sampleText.css('background-color', backgroundColor); // Sử dụng 'background-color' để thay đổi màu nền
+    textBody.find('.highlighted').css('background-color', backgroundColor); // Cập nhật cho text-body
 
     // Cập nhật màu chữ từ input màu chữ
     const colorText = $('#color-input').val();
     sampleText.css('color', colorText); // Đặt màu chữ
+    textBody.find('.highlighted').css('color', colorText);
 };
 </script>
 </body>
